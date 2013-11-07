@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/main_tvStatus"
+        style="@style/TvToCheck"
+        android:textColor="#000"
+        android:text="Status" />
+
+    <TextView
+        android:id="@+id/main_tvCheckPlay"
+        style="@style/TvToCheck"
+        android:text="Check Play Services" />
+
+    <TextView
+        android:id="@+id/main_tvGetRegid"
+        style="@style/TvToCheck"
+        android:text="Get Registration ID" />
+
+    <TextView
+        android:id="@+id/main_tvRegInBack"
+        style="@style/TvToCheck"
+        android:text="Register In Background" />
+
+    <TextView
+        android:id="@+id/main_tvReadyReceive"
+        style="@style/TvToCheck"
+        android:text="Ready to Receive" />
+
+    <ProgressBar
+        android:id="@+id/main_pbBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
