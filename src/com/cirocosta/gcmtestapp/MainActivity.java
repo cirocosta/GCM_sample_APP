@@ -26,7 +26,11 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 public class MainActivity extends Activity {
-
+	/*
+	 * SENDER_ID trata-se do ID do projeto em https://code.google.com/apis/console
+	 * tento Google Cloud Messaging for Android habilitado.
+	 */
+	
 	private TextView tvStatus, tvCheckPlay, tvGetRegid, tvRegInBack,
 			tvReadyReceive;
 	private ProgressBar pbBar;
