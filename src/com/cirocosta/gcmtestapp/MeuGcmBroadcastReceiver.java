@@ -12,7 +12,6 @@ public class MeuGcmBroadcastReceiver extends WakefulBroadcastReceiver{
 	public void onReceive(Context context, Intent intent) {
 		ComponentName comp = new ComponentName(context.getPackageName(),
                 MeuGcmService.class.getName());
-        // Start the service, keeping the device awake while it is launching.
         startWakefulService(context, (intent.setComponent(comp)));
         setResultCode(Activity.RESULT_OK);
 	}

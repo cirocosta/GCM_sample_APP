@@ -13,17 +13,16 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
+/**
+ * Atividade inicial
+ */
 public class LandingPage extends Activity {
-
-	private Button bIr;
-	private EditText etCodigo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.landing_page);
-		initialize();
-
+		final EditText etCodigo = (EditText) findViewById(R.id.landing_etCodigo);
 		etCodigo.setOnEditorActionListener(new OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView v, int actionId,
@@ -35,29 +34,29 @@ public class LandingPage extends Activity {
 				return false;
 			}
 		});
-		bIr.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				vaiParaMain(etCodigo);
-			}
-		});
+		((Button) findViewById(R.id.landing_bIr))
+				.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						vaiParaMain(etCodigo);
+					}
+				});
 	}
 
+	/**
+	 * Vai para atividade principal carregando o codigo colocado
+	 */
 	private void vaiParaMain(EditText et) {
-		String sCodigo = et.getText().toString();
-		if (sCodigo.length() > 0) {
+		final String codigo = et.getText().toString();
+		if (codigo.length() > 0) {
 			Intent i = new Intent(LandingPage.this, MainActivity.class);
-			i.putExtra("codigo", sCodigo);
+			i.putExtra(Constants.INTENT_CODIGO, codigo);
 			startActivity(i);
 			return;
 		}
-		Toast.makeText(LandingPage.this, "Insira o código gerado", Toast.LENGTH_LONG)
+		Toast.makeText(LandingPage.this,
+				getString(R.string.landing_insirir_codigo), Toast.LENGTH_LONG)
 				.show();
-	}
-
-	private void initialize() {
-		bIr = (Button) findViewById(R.id.landing_bIr);
-		etCodigo = (EditText) findViewById(R.id.landing_etCodigo);
 	}
 
 }

@@ -4,5 +4,15 @@
     <string name="app_name">GCMTestApp</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="status">Status</string>
 
+    <string name="landing_insirir_codigo">Insira o código gerado</string>
+ 
+    <string name="main_checkplay">Check Play Services</string>
+    <string name="main_get_regid">Get Registration ID</string>
+    <string name="main_reg_in_back">Register In Background</string>
+    <string name="main_ready">Ready to Receive</string>
+    
+    <string name="notif_teste">Teste de Notificação</string>
+    
 </resources>

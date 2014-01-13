@@ -9,27 +9,27 @@
         android:id="@+id/main_tvStatus"
         style="@style/TvToCheck"
         android:textColor="#000"
-        android:text="Status" />
+        android:text="@string/status" />
 
     <TextView
         android:id="@+id/main_tvCheckPlay"
         style="@style/TvToCheck"
-        android:text="Check Play Services" />
+        android:text="@string/main_checkplay" />
 
     <TextView
         android:id="@+id/main_tvGetRegid"
         style="@style/TvToCheck"
-        android:text="Get Registration ID" />
+        android:text="@string/main_get_regid" />
 
     <TextView
         android:id="@+id/main_tvRegInBack"
         style="@style/TvToCheck"
-        android:text="Register In Background" />
+        android:text="@string/main_reg_in_back" />
 
     <TextView
         android:id="@+id/main_tvReadyReceive"
         style="@style/TvToCheck"
-        android:text="Ready to Receive" />
+        android:text="@string/main_ready" />
 
     <ProgressBar
         android:id="@+id/main_pbBar"

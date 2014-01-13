@@ -13,6 +13,7 @@ import android.support.v4.app.NotificationCompat;
 public class MeuGcmService extends IntentService {
 
 	private static final String TAG = "MeuGcmService";
+	private static int sNotificationId = 0;
 
 	public MeuGcmService() {
 		super("MeuGcmService");
@@ -21,23 +22,23 @@ public class MeuGcmService extends IntentService {
 	@Override
 	protected void onHandleIntent(Intent intent) {
 		Bundle extras = intent.getExtras();
-		// processamento como desejar
 		processaMensagem(extras);
 		MeuGcmBroadcastReceiver.completeWakefulIntent(intent);
 	}
 
 	private void processaMensagem(Bundle extras) {
-		if (extras.containsKey("message")) {
-			sendNotification(extras.getString("message"));
+		if (extras.containsKey(Constants.BUNDLE_MESSAGE)) {
+			sendNotification(extras.getString(Constants.BUNDLE_MESSAGE));
 		}
 	}
 
 	private void sendNotification(String message) {
 		Context context = getApplicationContext();
-		int notificationId = 0;
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
 				context).setSmallIcon(R.drawable.ic_launcher)
-				.setTicker("GCM Teste").setContentTitle("GCM Teste").setContentInfo("Teste de notificacao")
+				.setTicker(getString(R.string.app_name))
+				.setContentTitle(getString(R.string.app_name))
+				.setContentInfo(getString(R.string.notif_teste))
 				.setContentText(message);
 		mBuilder.setLights(Color.WHITE, 1000, 1000);
 		mBuilder.setSound(RingtoneManager
@@ -48,9 +49,8 @@ public class MeuGcmService extends IntentService {
 		mBuilder.setContentIntent(resultPendingIntent);
 		NotificationManager mNotificationManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
-		// mId allows you to update the notification later on.
-		mNotificationManager.notify(notificationId, mBuilder.build());
-		notificationId++;
+		mNotificationManager.notify(sNotificationId, mBuilder.build());
+		sNotificationId++;
 	}
 
 }
