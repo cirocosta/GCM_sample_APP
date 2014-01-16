@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 	private static final int custom_green, custom_red;
 
 	private final static String GCM_TESTING_URL = 
-			"http://apresentae.appspot.com/gcm_testing/registro";
+			"https://apresentae.appspot.com/gcm_testing/registro";
 
 	private String SENDER_ID;
 	private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
@@ -193,12 +193,11 @@ public class MainActivity extends Activity {
 	private boolean sendRegistrationToBackend(String registration_id) {
 		HashMap<String, String> data = new HashMap<String, String>();
 		data.put("codigo", mCodigo);
-		data.put("mRegid", registration_id);
+		data.put("regid", registration_id);
 		data.put("modelo", getDeviceName());
 		PostData pd = new PostData(GCM_TESTING_URL, data);
 		try {
 			String response = pd.sendData();
-			Log.v(TAG, response);
 			if (!response.equals("") && !response.equals("error")) {
 				return true;
 			}
